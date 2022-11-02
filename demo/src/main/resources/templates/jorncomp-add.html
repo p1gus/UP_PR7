@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>журналиста к постам</title>
+</head>
+<body>
+<div align="center">
+    <form th:action="${'/jornpost/add'}" method="post">
+        <select name="jornalists">
+            <div th:each="element : ${jornalistis}">
+                <option th:text="${element.name}"></option>
+            </div>
+        </select>
+        <select name="posts">
+            <div th:each="element : ${postss}">
+                <option th:text="${element.title}"></option>
+            </div>
+        </select>
+        <br>
+        <button type="submit">Добавить журналиста к посту</button>
+    </form>
+</div>
+</body>
+</html>

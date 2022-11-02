@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Журанлисты в компанию</title>
+</head>
+<body>
+<h1>Добавление журналиста в компанию</h1>
+<a href="/jornpost/add" style="font-size: 20px">Переход к добавлению</a>
+<h1>Журналисты</h1>
+<div th:each="el : ${jornalist}">
+    <h3 th:text="${'Фамилия Имя: '+el.getName()+' '+el.getFam()}" style="display: inline-block"></h3>
+    <h4 th:text="${'Посты: '+el.postList}"></h4>
+</div>
+</body>
+</html>

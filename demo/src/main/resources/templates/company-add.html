@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Добавление компании</title>
+</head>
+<body bgcolor="6600CC" th:align="center">
+  <h1>Добавление компании</h1>
+  <br>
+  <form th:action = "${'/company/add'}" method="post" th:object="${company}">
+    <input th:field="*{namecompany}" style="width: 250px; height: 40px; margin-top: 30px" type="text" name="namecompany" placeholder="Введите название компании"><br>
+    <div style="width: 250px; height: 40px; margin: 2px" th:if="*{#fields.hasErrors('namecompany')}" th:errors="*{namecompany}"></div>
+      <div>
+          <label>Директор</label>
+          <div style="color: red" th:if="${#fields.hasErrors('director')}" th:errors="*{director}"></div>
+          <select th:field="*{director}" name="director">
+              <option th:each="director : ${directors}"
+                      th:if="${(company.director != null && directors.id == company.director.id) || director.company==null}"
+                      th:value="${director.id}"
+                      th:text="${director.namedirector}">
+              </option>
+          </select>
+      </div>
+      <br>
+    <p><a><button type="submit">Добавить компанию</button></a></p><br>
+    <p><a href="/" style="font-size: 20px" class="bott">Главное Меню</a></p>
+  </form>
+</body>
+</html>
+<style>
+  html *{
+    font-family: Arial !important;
+  }
+  a{
+    text-decoration: none;
+    font-size: 15px;
+    color: black;
+
+    border-width: 2px;
+    border-style: solid;
+    border-radius: 20px;
+    border-color: #000000;
+    background-color: #9900FF;
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 70px;
+    padding-right: 70px;
+    margin-top: 100px;
+
+    font-size: 1.2em;
+    text-transform: uppercase;
+    line-height: 1;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+  a:hover{
+    color: whitesmoke;
+    border-color: mediumpurple;
+    box-shadow: 0px 5px 10px 0px rgba(9, 1, 5, 0.5);
+    font-weight: bold;
+  }
+  p{
+    margin-top: 20px;
+  }
+  input{
+    color: black;
+    width: 200px;
+    height: 50px;
+    background-color: #9900FF;
+    border-radius: 20px;
+  }
+  textarea{
+    color: black;
+    width: 200px;
+    height: 50px;
+    background-color: #9900FF;
+    border-radius: 20px;
+  }
+</style>

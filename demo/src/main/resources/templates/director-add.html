@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление директора</title>
+</head>
+<body bgcolor="6600CC" th:align="center">
+<h1>Добавление директора</h1>
+<br>
+<form th:action = "${'/director/add'}" method="post" th:object="${directors}">
+  <input th:field="*{namedirector}" style="width: 250px; height: 40px; margin-top: 30px" type="text" name="director" placeholder="Введите адрес">
+  <div style="width: 250px; height: 40px; margin: 2px" th:if="*{#fields.hasErrors('namedirector')}" th:errors="*{namedirector}"></div><br>
+  <p><a><button type="submit">Добавить директора</button></a></p><br>
+  <p><a href="/" style="font-size: 20px" class="bott">Главное Меню</a></p>
+</form>
+</body>
+</html>
+<style>
+    html *{
+        font-family: Arial !important;
+    }
+    a{
+        text-decoration: none;
+        font-size: 15px;
+        color: black;
+
+        border-width: 2px;
+        border-style: solid;
+        border-radius: 20px;
+        border-color: #000000;
+        background-color: #9900FF;
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 70px;
+        padding-right: 70px;
+        margin-top: 100px;
+
+        font-size: 1.2em;
+        text-transform: uppercase;
+        line-height: 1;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    a:hover{
+        color: whitesmoke;
+        border-color: mediumpurple;
+        box-shadow: 0px 5px 10px 0px rgba(9, 1, 5, 0.5);
+        font-weight: bold;
+    }
+    p{
+        margin-top: 50px;
+    }
+    input{
+        color: black;
+        width: 200px;
+        height: 50px;
+        background-color: #9900FF;
+        border-radius: 20px;
+    }
+    textarea{
+        color: black;
+        width: 200px;
+        height: 50px;
+        background-color: #9900FF;
+        border-radius: 20px;
+    }
+    button{
+        font-size: 15px;
+        background-color: #9900FF;
+    }
+</style>

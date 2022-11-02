@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Журналисты</title>
+</head>
+<body bgcolor="6600CC" th:align="center">
+<h1>Журналисты</h1>
+    <div th:align="center" th:each="el : ${jornalisti}">
+        <h3 th:text="${'Имя: '+el.name}"></h3>
+        <h3 th:text="${'Фамилия: '+el.fam}"></h3>
+        <h4 th:text="${'Оклад: '+el.cena}"></h4>
+        <h4 th:text="${'Изданных статей: '+el.kolvastat}"></h4>
+        <h4 th:text="${'Дата рождения: '+el.denroj}"></h4>
+        <h4 th:text="${'Компания: '+el.company.namecompany}"></h4>
+        <h4 th:text="${'Директор: '+el.director.namedirector}"></h4>
+        <p><a th:href=" '/jornalisti/' + ${el.id}">Подробнее</a></p>
+    </div>
+<p><a href="/jornalisti/filter">Поиск</a></p>
+<p><a href="/jornalisti/add">Добавить</a></p>
+<p><a onclick="javascript:history.back(-2); return false;">Назад</a></p>
+</body>
+</html>
+<style>
+    html *{
+        font-family: Arial !important;
+    }
+    a{
+        text-decoration: none;
+        font-size: 15px;
+        color: black;
+
+        border-width: 2px;
+        border-style: solid;
+        border-radius: 20px;
+        border-color: #000000;
+        background-color: #9900FF;
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 70px;
+        padding-right: 70px;
+        margin-top: 100px;
+
+        font-size: 1.2em;
+        text-transform: uppercase;
+        line-height: 1;
+        -webkit-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+    a:hover{
+        color: whitesmoke;
+        border-color: mediumpurple;
+        box-shadow: 0px 5px 10px 0px rgba(9, 1, 5, 0.5);
+        font-weight: bold;
+    }
+    p{
+        margin-top: 50px;
+    }
+</style>
